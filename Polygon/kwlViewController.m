@@ -52,10 +52,14 @@ static NSArray * names;
 {
 	float angles = [self calcAngles: nSides];
 	
-	//float angles = calcAngles(nSides);
-	[_resultsLabel setText:[NSString stringWithFormat:@"Sides: %d | %@\nAngles: %.0f° | %.2fr", nSides, names[nSides - 3], angles, angles * M_PI / 180]];
+	[_resultsLabel setText:[NSString stringWithFormat:@"Sides: %i | %@\nAngles: %.0f° | %.2fr", nSides, names[nSides - 3], angles, angles * M_PI / 180]];
 	
+	[self drawPolygon:angles];
 	
+} //End update
+
+-(void)drawPolygon:(float) angles 
+{
 	//Setting up the canvas
 	_canvas.image = nil; //Clear the imageview
 	UIGraphicsBeginImageContext(self.view.frame.size);
@@ -72,23 +76,23 @@ static NSArray * names;
 	float x = radius * cos(0 * angle) + centerX;
 	float y = radius * sin(0 * angle) + centerY;
 	
-	for (int i = 1; i <= nSides; i++) {
+	for (int i = 1; i <= nSides; i++) 
+	{
 		CGContextMoveToPoint(UIGraphicsGetCurrentContext(), x, y);
-
+		
 		x = radius * cos((i) * angle) + centerX;
 		y = radius * sin((i) * angle) + centerY;
 		
 		CGContextAddLineToPoint(UIGraphicsGetCurrentContext(), x, y);
 		
-	}
+	} //End for-loop
 	
 	//Throwing the drawing in the imageview
 	CGContextStrokePath(UIGraphicsGetCurrentContext());
 	CGContextFlush(UIGraphicsGetCurrentContext());
 	self.canvas.image = UIGraphicsGetImageFromCurrentImageContext();
 	UIGraphicsEndImageContext();
-	
-} //End update
+}
 
 //Calculates the interior angles for any regular n-gon in degrees
 - (float)calcAngles:(int)sides {

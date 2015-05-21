@@ -17,35 +17,51 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <stepper opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="FOV-2L-h0g">
-                                <rect key="frame" x="113" y="430" width="94" height="29"/>
+                            <stepper opaque="NO" clipsSubviews="YES" contentMode="bottom" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="left" contentVerticalAlignment="bottom" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="FOV-2L-h0g">
+                                <rect key="frame" x="20" y="519" width="94" height="29"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <connections>
                                     <action selector="stepper:forEvent:" destination="vXZ-lx-hvc" eventType="valueChanged" id="XZ6-pk-UmY"/>
                                 </connections>
                             </stepper>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="ZeE-43-KfW">
-                                <rect key="frame" x="15" y="27" width="280" height="69"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="top" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="ZeE-43-KfW">
+                                <rect key="frame" x="20" y="20" width="0.0" height="70"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="70" id="NtH-Zk-3oy"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kbS-WP-PSw">
-                                <rect key="frame" x="20" y="131" width="275" height="278"/>
+                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kbS-WP-PSw">
+                                <rect key="frame" x="50" y="159" width="250" height="250"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="250" id="y56-iS-uY6"/>
+                                </constraints>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.86413334266652508" green="0.97802042365709774" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="centerY" secondItem="kbS-WP-PSw" secondAttribute="centerY" id="BSF-vE-pkY"/>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="FOV-2L-h0g" secondAttribute="bottom" constant="20" id="Fce-Mc-2v1"/>
+                            <constraint firstItem="ZeE-43-KfW" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="top" constant="20" symbolic="YES" id="HV9-D2-CqJ"/>
+                            <constraint firstAttribute="trailing" secondItem="kbS-WP-PSw" secondAttribute="trailing" constant="1" id="Hg6-7a-rvU"/>
+                            <constraint firstItem="FOV-2L-h0g" firstAttribute="leading" secondItem="ZeE-43-KfW" secondAttribute="leading" id="baN-U9-rqX"/>
+                            <constraint firstItem="ZeE-43-KfW" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" constant="20" symbolic="YES" id="t3C-6s-zj0"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="canvas" destination="kbS-WP-PSw" id="57r-o4-0P5"/>
                         <outlet property="resultsLabel" destination="ZeE-43-KfW" id="wft-sG-YJ9"/>
                         <outlet property="stepper" destination="FOV-2L-h0g" id="xOt-JX-GLZ"/>
+                        <outlet property="view" destination="kbS-WP-PSw" id="JNg-uH-XCw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="113" y="44"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
